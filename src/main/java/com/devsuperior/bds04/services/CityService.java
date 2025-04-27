@@ -17,7 +17,7 @@ public class CityService {
 
     @Transactional(readOnly = true)
     public List<CityDTO> findAll() {
-        List<City> list = repository.findAll();
+        List<City> list = repository.findAllByOrderByNameAsc();
         return list.stream().map(CityDTO::new).toList();
     }
 
